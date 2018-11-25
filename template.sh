@@ -19,7 +19,7 @@ done
 
 # select directory
 declare -i directoryLineNumber
-read -p "select directy via line-num: " directoryLineNumber
+read -p "select directory via line-num: " directoryLineNumber
 
 # cofirm
 echo "you select ${existedDirectory[directoryLineNumber]}"
@@ -35,13 +35,17 @@ viewFile="${directoryName}/${newFragmentName}View.js"
 containerFile="${directoryName}/${newFragmentName}Container.js"
 sagasFile="${directoryName}/${newFragmentName}Sagas.js"
 actionFile="${directoryName}/${newFragmentName}Action.js"
-reduerFile="${directoryName}/${newFragmentName}Reducer.js"
-
+reducerFile="${directoryName}/${newFragmentName}Reducer.js"
+# create file 
 touch $viewFile
 touch $containerFile
 touch $sagasFile
 touch $actionFile
 touch $reducerFile
+
+# fill file with content
+
+
 
 # cat "${directoryName}/"
 
