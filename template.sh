@@ -1,4 +1,7 @@
 #!/bin/bash
+# Questions
+## 1. how to import functons from other files
+## 2. how to parse yml file
 # Program
 #    generate package files based on parameters
 # 1. sh -p
@@ -45,11 +48,19 @@ touch $reducerFile
 
 # fill file with content
 cat ./config/view.js > $viewFile
-sed -i '' "s/template/`$newFragmentName`/g" $viewFile
+# how to interpolate the $newFragmentName
+sed -i '' "s/template/$newFragmentName/g" $viewFile
 cat ./config/container.js > $containerFile
+sed -i '' "s/template/$newFragmentName/g" $containerFile
 cat ./config/sagas.js > $sagasFile
+sed -i '' "s/template/$newFragmentName/g" $sagasFile
 cat ./config/actions.js > $actionFile
+sed -i '' "s/template/$newFragmentName/g" $actionFile
 cat ./config/reducer.js > $reducerFile
+sed -i '' "s/template/$newFragmentName/g" $reducerFile
+
+#
+echo "files are generated automaticlly"
 
 # cat "${directoryName}/"
 
