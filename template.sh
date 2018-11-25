@@ -24,7 +24,7 @@ read -p "select directory via line-num: " directoryLineNumber
 # cofirm
 echo "you select ${existedDirectory[directoryLineNumber]}"
 selectedDirectory=${existedDirectory[directoryLineNumber]}
-echo "selected directory: ${selectedDirectory}"
+#echo "selected directory: ${selectedDirectory}"
 # input name
 read -p "Input mode name: " newFragmentName
 directoryName="${selectedDirectory}/${newFragmentName}"
@@ -44,8 +44,12 @@ touch $actionFile
 touch $reducerFile
 
 # fill file with content
-
-
+cat ./config/view.js > $viewFile
+sed -i '' "s/template/`$newFragmentName`/g" $viewFile
+cat ./config/container.js > $containerFile
+cat ./config/sagas.js > $sagasFile
+cat ./config/actions.js > $actionFile
+cat ./config/reducer.js > $reducerFile
 
 # cat "${directoryName}/"
 
